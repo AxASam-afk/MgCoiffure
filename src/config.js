@@ -41,28 +41,26 @@ const SITE_CONFIG = {
         parallax: true
     },
     
-    // Images (chemins relatifs)
+    // Images (chemins depuis public/)
     images: {
-        hero: 'images/hero-salon.jpg',
-        salonDames: 'images/salon-dames.jpg',
-        salonHommes: 'images/salon-hommes.jpg',
-        hairKatsura: 'images/hair-katsura.jpg',
-        coffretRasage: 'images/coffret-rasage.jpg',
-        coffretBarbe: 'images/coffret-barbe.jpg',
-        produits: 'images/produits.jpg',
+        hero: '/images/hero-salon.jpg',
+        salonDames: '/images/salon-dames.jpg',
+        salonHommes: '/images/salon-hommes.jpg',
+        hairKatsura: '/images/hair-katsura.jpg',
+        coffretRasage: '/images/coffret-rasage.jpg',
+        coffretBarbe: '/images/coffret-barbe.jpg',
+        produits: '/images/produits.jpg',
         galerie: [
-            'images/galerie-1.jpg',
-            'images/galerie-2.jpg',
-            'images/galerie-3.jpg',
-            'images/galerie-4.jpg',
-            'images/galerie-5.jpg',
-            'images/galerie-6.jpg'
+            '/images/galerie-1.jpg',
+            '/images/galerie-2.jpg',
+            '/images/galerie-3.jpg',
+            '/images/galerie-4.jpg',
+            '/images/galerie-5.jpg',
+            '/images/galerie-6.jpg'
         ]
     }
 };
 
-// Export pour utilisation dans main.js
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = SITE_CONFIG;
-}
+// Export pour utilisation dans main.js (ES modules)
+export default SITE_CONFIG;
 

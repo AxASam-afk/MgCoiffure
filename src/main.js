@@ -16,6 +16,9 @@ import * as THREE from 'three';
 // Import HTML content (Vite handles ?raw imports natively)
 import appHTML from './app.html?raw';
 
+// Import image utilities
+import { applyImagesFromConfig } from './utils/images.js';
+
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,6 +31,9 @@ function initApp() {
     const app = document.getElementById('app');
     if (app) {
         app.innerHTML = appHTML;
+        
+        // Apply images from config first
+        applyImagesFromConfig();
         
         // Initialize after HTML is injected
         requestAnimationFrame(() => {
