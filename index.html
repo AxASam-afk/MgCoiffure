@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MG Coiffure Masculin Féminin - Salon de coiffure haut de gamme à Bram (11150). L'art du cheveu pour dames et hommes.">
+    <title>MG Coiffure - Masculin & Féminin | Bram (11150)</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">MG</span>
+                <span class="logo-subtitle">Coiffure</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Accueil</a></li>
+                <li><a href="#salon" class="nav-link">Le Salon</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#cartes" class="nav-link">Cartes Cadeaux</a></li>
+                <li><a href="#coffrets" class="nav-link">Coffrets</a></li>
+                <li><a href="#galerie" class="nav-link">Galerie</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-image" id="heroImage"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-logo-3d" id="heroLogo3D">
+                <div class="logo-3d-container">
+                    <span class="logo-main">MG</span>
+                    <span class="logo-sub">Coiffure</span>
+                </div>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line" data-animation="fade-up">MG Coiffure</span>
+                <span class="title-line" data-animation="fade-up" data-delay="0.2">Masculin & Féminin</span>
+            </h1>
+            <p class="hero-subtitle" data-animation="fade-up" data-delay="0.4">L'art du cheveu à Bram</p>
+            <div class="hero-buttons" data-animation="fade-up" data-delay="0.6">
+                <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
+                <a href="tel:+33612345678" class="btn btn-secondary">Nous contacter</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Le Salon -->
+    <section class="section salon" id="salon">
+        <div class="container">
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Le Salon</h2>
+                <p class="section-subtitle">Deux univers, une même passion pour l'excellence</p>
+            </div>
+            <div class="salon-cards">
+                <div class="salon-card" data-card="dames">
+                    <div class="card-3d-wrapper">
+                        <div class="card-image">
+                            <div class="image-placeholder" style="background-image: url('images/salon-dames.jpg');"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Dames</h3>
+                            <p class="card-text">Un espace dédié à votre beauté, où chaque coupe et chaque couleur sont pensées pour révéler votre personnalité.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="salon-card" data-card="hommes">
+                    <div class="card-3d-wrapper">
+                        <div class="card-image">
+                            <div class="image-placeholder" style="background-image: url('images/salon-hommes.jpg');"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Hommes</h3>
+                            <p class="card-text">Un savoir-faire traditionnel allié à la modernité, pour un style toujours impeccable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services Premium -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="services-content">
+                <div class="services-text" data-animation="fade-right">
+                    <h2 class="section-title">Service Premium</h2>
+                    <h3 class="service-name">Prothèse capillaire Hair Katsura</h3>
+                    <p class="service-description">
+                        MG Coiffure met en place un nouveau service de prothèse capillaire Hair Katsura.
+                        Pour plus de renseignements, merci de vous rapprocher du salon.
+                    </p>
+                    <a href="#contact" class="btn btn-primary">Demande d'information</a>
+                </div>
+                <div class="services-visual" data-animation="fade-left">
+                    <div class="before-after-container">
+                        <div class="before-after-image">
+                            <div class="image-placeholder" style="background-image: url('images/hair-katsura.jpg');"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Cartes Cadeaux -->
+    <section class="section cartes" id="cartes">
+        <div class="container">
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Cartes Cadeaux</h2>
+                <p class="section-subtitle">Offrez l'excellence</p>
+            </div>
+            <div class="cartes-grid">
+                <div class="carte-card" data-animation="fade-up" data-delay="0.1">
+                    <div class="carte-3d-wrapper">
+                        <div class="carte-content">
+                            <h3 class="carte-title">Shampooing + Coupe + Coiffage</h3>
+                            <div class="carte-price">19,50 €</div>
+                            <p class="carte-note">Valable 3 mois à compter de la date d'achat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carte-card" data-animation="fade-up" data-delay="0.2">
+                    <div class="carte-3d-wrapper">
+                        <div class="carte-content">
+                            <h3 class="carte-title">Shampooing + Coupe + Coiffage + Barbe</h3>
+                            <div class="carte-price">25,50 €</div>
+                            <p class="carte-note">Valable 3 mois à compter de la date d'achat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Coffrets Cadeaux -->
+    <section class="section coffrets" id="coffrets">
+        <div class="container">
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Coffrets Cadeaux</h2>
+                <p class="section-subtitle">L'art du soin capillaire</p>
+            </div>
+            <div class="coffrets-slider" id="coffretsSlider">
+                <div class="coffret-item" data-animation="fade-up">
+                    <div class="coffret-image">
+                        <div class="image-placeholder" style="background-image: url('images/coffret-rasage.jpg');"></div>
+                    </div>
+                    <h3 class="coffret-title">Coffret Rasage</h3>
+                </div>
+                <div class="coffret-item" data-animation="fade-up" data-delay="0.1">
+                    <div class="coffret-image">
+                        <div class="image-placeholder" style="background-image: url('images/coffret-barbe.jpg');"></div>
+                    </div>
+                    <h3 class="coffret-title">Coffret Barbe</h3>
+                </div>
+                <div class="coffret-item" data-animation="fade-up" data-delay="0.2">
+                    <div class="coffret-image">
+                        <div class="image-placeholder" style="background-image: url('images/produits.jpg');"></div>
+                    </div>
+                    <h3 class="coffret-title">Produits à l'unité</h3>
+                </div>
+            </div>
+            <div class="coffrets-offer" data-animation="fade-up">
+                <p class="offer-text">
+                    <strong>Offre spéciale :</strong> Pour deux produits achetés, une trousse American Crew offerte 
+                    (dans la limite des stocks).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Fusion & Identité -->
+    <section class="section fusion" id="fusion">
+        <div class="container">
+            <div class="fusion-content">
+                <div class="fusion-timeline" data-animation="fade-up">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>MC Coiffure</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-arrow">→</div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Coiffeur Hommes</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-arrow">→</div>
+                    <div class="timeline-item active">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>MG Coiffure</h3>
+                            <p>Masculin & Féminin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fusion-text" data-animation="fade-up" data-delay="0.2">
+                    <h2 class="section-title">Notre Histoire</h2>
+                    <p>
+                        De MC Coiffure à Coiffeur Hommes, notre salon a évolué pour devenir MG Coiffure Masculin & Féminin, 
+                        un lieu où l'excellence et la passion se rencontrent. Nous avons fusionné nos savoir-faire pour 
+                        offrir une expérience unique, alliant tradition et modernité, pour dames et hommes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie -->
+    <section class="section galerie" id="galerie">
+        <div class="container">
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Galerie</h2>
+                <p class="section-subtitle">Découvrez notre univers</p>
+            </div>
+            <div class="galerie-grid" id="galerieGrid">
+                <!-- Les images seront chargées dynamiquement via JavaScript -->
+                <!-- Placeholder pour 12 images -->
+                <div class="galerie-item" data-animation="fade-up">
+                    <div class="galerie-image">
+                        <div class="image-placeholder" style="background-image: url('images/galerie-1.jpg');"></div>
+                        <div class="galerie-overlay">
+                            <span class="zoom-icon">🔍</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galerie-item" data-animation="fade-up" data-delay="0.05">
+                    <div class="galerie-image">
+                        <div class="image-placeholder" style="background-image: url('images/galerie-2.jpg');"></div>
+                        <div class="galerie-overlay">
+                            <span class="zoom-icon">🔍</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galerie-item" data-animation="fade-up" data-delay="0.1">
+                    <div class="galerie-image">
+                        <div class="image-placeholder" style="background-image: url('images/galerie-3.jpg');"></div>
+                        <div class="galerie-overlay">
+                            <span class="zoom-icon">🔍</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galerie-item" data-animation="fade-up" data-delay="0.15">
+                    <div class="galerie-image">
+                        <div class="image-placeholder" style="background-image: url('images/galerie-4.jpg');"></div>
+                        <div class="galerie-overlay">
+                            <span class="zoom-icon">🔍</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galerie-item" data-animation="fade-up" data-delay="0.2">
+                    <div class="galerie-image">
+                        <div class="image-placeholder" style="background-image: url('images/galerie-5.jpg');"></div>
+                        <div class="galerie-overlay">
+                            <span class="zoom-icon">🔍</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="galerie-item" data-animation="fade-up" data-delay="0.25">
+                    <div class="galerie-image">
+                        <div class="image-placeholder" style="background-image: url('images/galerie-6.jpg');"></div>
+                        <div class="galerie-overlay">
+                            <span class="zoom-icon">🔍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox pour la galerie -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev">‹</button>
+        <button class="lightbox-next" id="lightboxNext">›</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+        </div>
+    </div>
+
+    <!-- Section Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">Venez nous rendre visite</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-animation="fade-right">
+                    <div class="contact-item">
+                        <h3>Adresse</h3>
+                        <p>Bram (Aude) 11150<br>France</p>
+                    </div>
+                    <div class="contact-buttons">
+                        <a href="tel:+33612345678" class="btn btn-primary">
+                            <span>📞</span> Appeler
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bram+11150" target="_blank" class="btn btn-secondary">
+                            <span>🗺️</span> Itinéraire
+                        </a>
+                    </div>
+                    <div class="contact-social">
+                        <a href="#" class="social-link" aria-label="Facebook">Facebook</a>
+                        <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+                    </div>
+                </div>
+                <div class="contact-map" data-animation="fade-left">
+                    <div class="map-container" id="mapContainer">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.123456789!2d2.123456!3d43.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDA3JzI0LjQiTiAywrAwNyczNC40IkU!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                MG Coiffure © 2017 - 2026 – Tous droits réservés
+            </p>
+            <p class="footer-subtext">
+                Coiffure Dames & Hommes à Bram (Aude)
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
