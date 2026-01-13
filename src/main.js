@@ -238,33 +238,41 @@ function initAnimations() {
         const animationType = element.getAttribute('data-animation');
         const delay = parseFloat(element.getAttribute('data-delay')) || 0;
         
-        let animationProps = {
-            opacity: 1,
+        // Set initial state based on animation type
+        let initialState = { opacity: 0 };
+        let finalState = { opacity: 1 };
+        
+        switch (animationType) {
+            case 'fade-up':
+                initialState.y = 30;
+                finalState.y = 0;
+                break;
+            case 'fade-right':
+                initialState.x = -30;
+                finalState.x = 0;
+                break;
+            case 'fade-left':
+                initialState.x = 30;
+                finalState.x = 0;
+                break;
+        }
+        
+        // Set initial state
+        gsap.set(element, initialState);
+        
+        // Animate to final state
+        gsap.to(element, {
+            ...finalState,
             duration: 1,
             ease: 'power3.out',
             delay: delay,
             scrollTrigger: {
                 trigger: element,
-                start: 'top 80%',
+                start: 'top 85%',
                 end: 'bottom 20%',
-                toggleActions: 'play none none reverse'
+                toggleActions: 'play none none none' // Don't reverse - keep elements visible
             }
-        };
-        
-        switch (animationType) {
-            case 'fade-up':
-                animationProps.y = 0;
-                gsap.from(element, animationProps);
-                break;
-            case 'fade-right':
-                animationProps.x = 0;
-                gsap.from(element, animationProps);
-                break;
-            case 'fade-left':
-                animationProps.x = 0;
-                gsap.from(element, animationProps);
-                break;
-        }
+        });
     });
     
     // Salon cards 3D effect
@@ -305,13 +313,19 @@ function initAnimations() {
     carteCards.forEach(card => {
         const cardWrapper = card.querySelector('.carte-3d-wrapper');
         
+        // Set initial state
+        gsap.set(cardWrapper, {
+            rotationY: -30,
+            opacity: 0
+        });
+        
         ScrollTrigger.create({
             trigger: card,
-            start: 'top 80%',
+            start: 'top 85%',
             onEnter: () => {
-                gsap.from(cardWrapper, {
-                    rotationY: -30,
-                    opacity: 0,
+                gsap.to(cardWrapper, {
+                    rotationY: 0,
+                    opacity: 1,
                     duration: 1,
                     ease: 'power3.out'
                 });
@@ -349,13 +363,19 @@ function initAnimations() {
     // Services before/after animation
     const servicesVisual = document.querySelector('.services-visual');
     if (servicesVisual) {
+        // Set initial state
+        gsap.set(servicesVisual, {
+            scale: 0.8,
+            opacity: 0
+        });
+        
         ScrollTrigger.create({
             trigger: servicesVisual,
-            start: 'top 70%',
+            start: 'top 75%',
             onEnter: () => {
-                gsap.from(servicesVisual, {
-                    scale: 0.8,
-                    opacity: 0,
+                gsap.to(servicesVisual, {
+                    scale: 1,
+                    opacity: 1,
                     duration: 1.5,
                     ease: 'power3.out'
                 });
@@ -366,13 +386,19 @@ function initAnimations() {
     // Coffrets slider animation
     const coffretsItems = document.querySelectorAll('.coffret-item');
     coffretsItems.forEach((item, index) => {
+        // Set initial state
+        gsap.set(item, {
+            x: index % 2 === 0 ? -100 : 100,
+            opacity: 0
+        });
+        
         ScrollTrigger.create({
             trigger: item,
-            start: 'top 80%',
+            start: 'top 85%',
             onEnter: () => {
-                gsap.from(item, {
-                    x: index % 2 === 0 ? -100 : 100,
-                    opacity: 0,
+                gsap.to(item, {
+                    x: 0,
+                    opacity: 1,
                     duration: 1,
                     ease: 'power3.out',
                     delay: index * 0.1
@@ -384,13 +410,19 @@ function initAnimations() {
     // Fusion timeline animation
     const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach((item, index) => {
+        // Set initial state
+        gsap.set(item, {
+            scale: 0,
+            opacity: 0
+        });
+        
         ScrollTrigger.create({
             trigger: item,
-            start: 'top 80%',
+            start: 'top 85%',
             onEnter: () => {
-                gsap.from(item, {
-                    scale: 0,
-                    opacity: 0,
+                gsap.to(item, {
+                    scale: 1,
+                    opacity: 1,
                     duration: 0.8,
                     ease: 'back.out(1.7)',
                     delay: index * 0.2
