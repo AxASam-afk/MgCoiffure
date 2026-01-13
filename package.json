@@ -2,22 +2,28 @@
   "name": "mg-coiffure",
   "version": "1.0.0",
   "description": "Site web premium pour MG Coiffure Masculin & Féminin à Bram (11150)",
-  "main": "index.html",
+  "type": "module",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve . -l 3000",
-    "build": "echo 'Site statique - prêt pour déploiement'"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite preview"
   },
   "keywords": [
     "coiffure",
     "salon",
     "premium",
     "bram",
-    "aude"
+    "aude",
+    "vite"
   ],
   "author": "MG Coiffure",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "gsap": "^3.12.2",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
 }
-

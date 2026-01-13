@@ -1,4 +1,4 @@
-# MG Coiffure - Site Web Premium
+# MG Coiffure - Site Web Premium (Vite)
 
 Site web immersif et moderne pour **MG Coiffure Masculin & Féminin**, salon de coiffure haut de gamme à Bram (11150).
 
@@ -8,10 +8,11 @@ Site web immersif et moderne pour **MG Coiffure Masculin & Féminin**, salon de 
 - **Animations 3D** : Effets Three.js et GSAP pour une expérience immersive
 - **Scroll Animations** : Animations fluides au scroll avec ScrollTrigger
 - **Responsive** : Optimisé pour desktop, tablette et mobile
-- **Performance** : Lazy loading, optimisations pour une navigation fluide
+- **Performance** : Build optimisé avec Vite, lazy loading, optimisations
 
 ## 🚀 Technologies
 
+- **Vite** - Build tool ultra-rapide
 - **HTML5** / **CSS3** / **JavaScript ES6+**
 - **GSAP 3.12** avec ScrollTrigger
 - **Three.js** pour les effets 3D
@@ -21,27 +22,22 @@ Site web immersif et moderne pour **MG Coiffure Masculin & Féminin**, salon de 
 
 ```
 Mg_Coiffure/
-├── index.html          # Page principale
-├── css/
-│   └── main.css        # Styles premium
-├── js/
-│   └── main.js         # Animations et interactions
-├── images/             # Photos du salon (à ajouter)
-│   ├── hero-salon.jpg
-│   ├── salon-dames.jpg
-│   ├── salon-hommes.jpg
-│   ├── hair-katsura.jpg
-│   ├── coffret-rasage.jpg
-│   ├── coffret-barbe.jpg
-│   ├── produits.jpg
-│   └── galerie-*.jpg
-├── package.json
-└── README.md
+├── index.html          # Point d'entrée Vite
+├── vite.config.js      # Configuration Vite
+├── package.json        # Dépendances npm
+├── public/            # Assets statiques (images)
+│   └── images/        # Photos du salon
+├── src/               # Code source
+│   ├── main.js        # Point d'entrée JavaScript
+│   ├── main.css       # Styles premium
+│   ├── app.html       # Contenu HTML de l'application
+│   └── config.js      # Configuration
+└── dist/              # Build de production (généré)
 ```
 
 ## 🖼️ Images Requises
 
-Placez vos images dans le dossier `images/` avec les noms suivants :
+Placez vos images dans le dossier `public/images/` avec les noms suivants :
 
 - `hero-salon.jpg` - Image principale du hero
 - `salon-dames.jpg` - Photo du salon dames
@@ -54,62 +50,88 @@ Placez vos images dans le dossier `images/` avec les noms suivants :
 
 ## 🛠️ Installation et Utilisation
 
-### Développement Local
+### Prérequis
+
+- Node.js 18+ et npm
+
+### Installation
 
 ```bash
-# Installer les dépendances (optionnel, utilise CDN)
+# Installer les dépendances
 npm install
-
-# Lancer un serveur local
-npm start
-# ou
-npx serve .
 ```
 
-Le site sera accessible sur `http://localhost:3000`
+### Développement
 
-### Déploiement
+```bash
+# Lancer le serveur de développement
+npm run dev
+```
 
-Le site est statique et peut être déployé sur :
-- **Netlify**
-- **Vercel**
-- **GitHub Pages**
-- **Serveur web classique** (Apache, Nginx)
+Le site sera accessible sur `http://localhost:3000` avec hot-reload automatique.
 
-1. Ajoutez toutes vos images dans le dossier `images/`
-2. Mettez à jour les coordonnées Google Maps dans `index.html` (ligne ~280)
-3. Mettez à jour le numéro de téléphone dans `index.html` (ligne ~270)
-4. Déployez les fichiers sur votre hébergeur
+### Build de Production
+
+```bash
+# Créer le build optimisé
+npm run build
+```
+
+Le build sera généré dans le dossier `dist/`.
+
+### Prévisualisation du Build
+
+```bash
+# Prévisualiser le build de production
+npm run preview
+```
 
 ## 📝 Personnalisation
 
 ### Couleurs
 
-Modifiez les variables CSS dans `css/main.css` :
+Modifiez les variables CSS dans `src/main.css` :
 
 ```css
 :root {
-    --color-black: #0a0a0a;
-    --color-brown: #8b6f47;
-    --color-gold: #d4af37;
+    --color-gold: #d4af37;  /* Changez cette couleur */
+    --color-brown: #8b6f47; /* Et celle-ci */
     /* ... */
 }
 ```
 
 ### Coordonnées Google Maps
 
-Dans `index.html`, remplacez l'URL de l'iframe Google Maps par vos coordonnées :
-
-```html
-<iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.123456789!2d2.123456!3d43.123456!..."
-    ...
-></iframe>
-```
+Dans `src/app.html`, remplacez l'URL de l'iframe Google Maps par vos coordonnées.
 
 ### Numéro de Téléphone
 
-Remplacez `+33612345678` par votre numéro réel dans `index.html`.
+Remplacez `+33612345678` par votre numéro réel dans `src/app.html`.
+
+## 🚀 Déploiement
+
+### Vercel (Recommandé)
+
+Le fichier `vercel.json` est déjà configuré. Il suffit de :
+
+1. Connecter votre repository GitHub à Vercel
+2. Vercel détectera automatiquement la configuration Vite
+3. Le build se fera automatiquement à chaque push
+
+### Netlify
+
+1. Créez un fichier `netlify.toml` :
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+```
+
+2. Connectez votre repository à Netlify
+
+### Autres Plateformes
+
+Le dossier `dist/` contient tous les fichiers statiques nécessaires. Vous pouvez le déployer sur n'importe quel hébergeur statique.
 
 ## 🎯 Sections du Site
 
@@ -128,12 +150,11 @@ Remplacez `+33612345678` par votre numéro réel dans `index.html`.
 - **Tablette** : Adaptations des grilles et espacements
 - **Mobile** : Menu hamburger, optimisations tactiles
 
-## 🔧 Optimisations
+## 🔧 Scripts Disponibles
 
-- Lazy loading des images
-- Animations performantes avec `will-change`
-- CSS optimisé avec variables
-- JavaScript modulaire et commenté
+- `npm run dev` - Serveur de développement
+- `npm run build` - Build de production
+- `npm run preview` - Prévisualiser le build
 
 ## 📞 Support
 
@@ -143,4 +164,3 @@ Pour toute question ou personnalisation, contactez le développeur.
 
 **MG Coiffure © 2017 - 2026 – Tous droits réservés**  
 *Coiffure Dames & Hommes à Bram (Aude)*
-

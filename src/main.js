@@ -1,20 +1,52 @@
 /**
- * MG COIFFURE - MAIN JAVASCRIPT
+ * MG COIFFURE - MAIN JAVASCRIPT (Vite)
  * Animations GSAP, Three.js, Interactions
  */
+
+// Import CSS
+import './main.css';
+
+// Import GSAP
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Import Three.js
+import * as THREE from 'three';
+
+// Import HTML content (Vite handles ?raw imports natively)
+import appHTML from './app.html?raw';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 // ============================================
 // INITIALISATION
 // ============================================
 
-document.addEventListener('DOMContentLoaded', () => {
-    initNavigation();
-    initHero();
-    initAnimations();
-    initGalerie();
-    initThreeJS();
-    initScrollEffects();
-});
+// Inject HTML into app
+function initApp() {
+    const app = document.getElementById('app');
+    if (app) {
+        app.innerHTML = appHTML;
+        
+        // Initialize after HTML is injected
+        requestAnimationFrame(() => {
+            initNavigation();
+            initHero();
+            initAnimations();
+            initGalerie();
+            initThreeJS();
+            initScrollEffects();
+        });
+    }
+}
+
+// Start app when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
 
 // ============================================
 // NAVIGATION
@@ -25,6 +57,8 @@ function initNavigation() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+
+    if (!nav) return;
 
     // Scroll effect
     let lastScroll = 0;
@@ -80,8 +114,6 @@ function initHero() {
     const heroContent = document.querySelector('.hero-content');
     
     // Parallax effect on hero image
-    gsap.registerPlugin(ScrollTrigger);
-    
     if (heroImage) {
         gsap.to(heroImage, {
             scrollTrigger: {
@@ -96,14 +128,16 @@ function initHero() {
     }
     
     // Hero content fade in
-    gsap.from(heroContent.children, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out',
-        delay: 0.5
-    });
+    if (heroContent) {
+        gsap.from(heroContent.children, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out',
+            delay: 0.5
+        });
+    }
 }
 
 // ============================================
@@ -197,8 +231,6 @@ function initThreeJS() {
 // ============================================
 
 function initAnimations() {
-    gsap.registerPlugin(ScrollTrigger);
-    
     // Animate elements on scroll
     const animatedElements = document.querySelectorAll('[data-animation]');
     
@@ -417,13 +449,19 @@ function initGalerie() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    
+    if (!galerieItems.length || !lightbox) return;
     
     let currentImageIndex = 0;
     const images = Array.from(galerieItems).map(item => {
         const img = item.querySelector('.image-placeholder');
-        return img ? window.getComputedStyle(img).backgroundImage.slice(5, -2).replace(/"/g, '') : null;
+        if (img) {
+            const bgImage = window.getComputedStyle(img).backgroundImage;
+            return bgImage ? bgImage.slice(5, -2).replace(/"/g, '') : null;
+        }
+        return null;
     }).filter(Boolean);
     
     // Open lightbox
@@ -550,37 +588,5 @@ function handleImageErrors() {
     });
 }
 
-// Initialize image error handling
-handleImageErrors();
-
-// ============================================
-// PERFORMANCE OPTIMIZATION
-// ============================================
-
-// Lazy loading for images
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                }
-                observer.unobserve(img);
-            }
-        });
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
-
-// Smooth scroll polyfill for older browsers
-if (!('scrollBehavior' in document.documentElement.style)) {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js';
-    document.head.appendChild(script);
-}
-
+// Initialize image error handling after DOM is ready
+setTimeout(handleImageErrors, 100);
